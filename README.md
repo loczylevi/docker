@@ -33,3 +33,6 @@ docker -9 --> kill all
 docker rm nice_kirch 
 
 docker container stats myXampp --> stat
+
+docker images
+
