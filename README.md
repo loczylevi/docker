@@ -36,3 +36,6 @@ docker container stats myXampp --> stat
 
 docker images
 
+docker run hello-world
+
+docker version
