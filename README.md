@@ -10,7 +10,14 @@ sudo adduser loczylevi docker
 
 docker pull ubuntu
 
-docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www tomsik68/xampp
+docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www tomsik68/xampp                         
+
+______________________________________
+
+-p 41061:22 -p 41062:80  --> ezeken a portokon megy a docker vagy valami ilyesmi
+
+_____________________________________
+
 
 docker run -it ubuntu
 
