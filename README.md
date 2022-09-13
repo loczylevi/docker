@@ -18,6 +18,11 @@ ______________________________________
 
 _____________________________________
 
+https://hub.docker.com/r/tomsik68/xampp/
+
+localhostal beinditani a php myadmint!
+
+<<< Tesztelések >>>>
 
 docker run -it ubuntu
 
