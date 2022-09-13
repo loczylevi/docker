@@ -1,12 +1,14 @@
-# docker
+# docker Ubuntura -- Használati utasítás
+
+megnyitod ezt a linket itt kell letelepiteni a dockert:
 
 https://docs.docker.com/engine/install/ubuntu/
 
-install docker enginig kell csak
+install docker engin-ig kell csak!
 
 sudo adduser (felhasznalo) --> docker ki kell kapcsolni a gépet és ujra bekapcsolni
 
-sudo adduser loczylevi docker
+sudo adduser loczylevi docker 
 
 docker pull ubuntu
 
