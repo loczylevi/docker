@@ -55,3 +55,13 @@ docker images
 docker run hello-world
 
 docker version
+
+
+_____________________________________
+docker ujrainditása ha "elaludt"
+
+docker rm myXampp
+
+docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www tomsik68/xampp     
+
+_____________________________________
