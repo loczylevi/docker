@@ -56,12 +56,17 @@ docker run hello-world
 
 docker version
 
-
-_____________________________________
-docker ujrainditása ha "elaludt"
+____________________________________________________
+docker ujrainditása ha "elaludt" DE itt kitörli a konténert!!!!
 
 docker rm myXampp
 
-docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www tomsik68/xampp     
+docker run --name myXampp -p 41061:22 -p 41062:80 -d -v ~/my_web_pages:/www tomsik68/xampp  
+
+_____________________________________
+
+docker ujrainditása ha "elaludt"
+
+docker run myXampp
 
 _____________________________________
