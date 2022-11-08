@@ -57,7 +57,7 @@ docker run hello-world
 docker version
 
 ____________________________________________________
-docker ujrainditása ha "elaludt" DE itt kitörli a konténert!!!!
+docker konténer kitörlése és elinditása
 
 docker rm myXampp
 
