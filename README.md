@@ -73,6 +73,29 @@ _____________________________________
 
 ## docker 2023.oktober 16. commandok
 
+alapok alapja 
+
+ugye 
+dokcker run ubuntu
+docker run hello-world
+
+ezekkel a fenti commandokkal konténereket futtatunk
+na ez szép és jó de hogyan látom hogy futnak?
+ezzel a commandal:
+__________________________________________________________________________
+
+loczylevi@sis:~$ docker ps -a
+CONTAINER ID   IMAGE         COMMAND       CREATED          STATUS                        PORTS     NAMES
+fb24f53f9332   ubuntu        "/bin/bash"   10 minutes ago   Exited (0) 10 minutes ago               eloquent_engelbart
+8e3b017b4921   hello-world   "/hello"      28 minutes ago   Exited (0) 28 minutes ago               optimistic_bhabha
+4fa8c7b42153   ubuntu        "bash"        31 minutes ago   Exited (0) 31 minutes ago               romantic_khayyam
+28c0d74ce7fb   hello-world   "/hello"      32 minutes ago   Exited (0) 32 minutes ago               blissful_rosalind
+be3105b15853   ubuntu        "/bin/bash"   38 minutes ago   Exited (127) 34 minutes ago             laughing_galois
+_____________________________________________________________________________
+
+
+mint a fenti példában látható minden futo konténernek van egy CONTAINER ID vagyis specko ID je szoval mikor a lenti jegyzetekben látsz ilyet hogy <ID> akkor a konténerednek az ID-jét kell megadnod _(ha mondjuk törölni kell vagy valami...)_
+
 docker 
 
 docker run hello-world
@@ -97,4 +120,22 @@ docker rmi <img ID>                --> _rmi_ annyit teszt mint _remove image_
 
 ps ax                             --> listázza a futó alkalmazásokat
 
-docker run -it ubuntu 
+docker run -it ubuntu /bin/bash   -->  ugyanugy interaktivan ubuntut futattunk csak bin/bash faszsággal ami nem tudom mit csinál ¯\_(ツ)_/¯
+
+ps ax | grep mys                  --> mint ugye elözöekben láttuk a ps ki listázza a gépeden futo alkalmazásokat a "_grep_" az egy kereső, szürő parancs amivel keresni tudunk ha rengeteg dolog küzül nekünk csak egy bizonyos információra van szükségünk!
+
+pl:
+________________________________________________
+loczylevi@sis:~$ ps ax | grep docker
+   1107 ?        Ssl    0:06 dockerd --group docker --exec-root=/run/snap.docker --data-root=/var/snap/docker/common/var-lib-docker --pidfile=/run/snap.docker/docker.pid --config-file=/var/snap/docker/2893/config/daemon.json
+   1463 ?        Ssl    0:04 containerd --config /run/snap.docker/containerd/containerd.toml --log-level error
+   1712 ?        Ssl    0:00 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+   5147 pts/0    S+     0:00 grep --color=auto docker
+___________________________________
+
+mint a  fenti példában látható futtatjuk a ps commandot ami ugye listázza a futo dolgokat de grep commandal megmondtuk neki hogy csak azokat listázza aki amiben szerepel a "docker" szó, kifejezés
+
+
+
+
+      
