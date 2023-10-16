@@ -76,7 +76,7 @@ _____________________________________
 alapok alapja 
 
 ugye 
-dokcker run ubuntu
+docker run ubuntu
 docker run hello-world
 
 ezekkel a fenti commandokkal konténereket futtatunk
@@ -135,6 +135,103 @@ ___________________________________
 
 mint a  fenti példában látható futtatjuk a ps commandot ami ugye listázza a futo dolgokat de grep commandal megmondtuk neki hogy csak azokat listázza aki amiben szerepel a "docker" szó, kifejezés
 
+_______________________________________________
+
+docker stop <ID>               --> leállitja a futó konténert
+
+docker inspect <image ID>       --> kilistázza a konténer beáálitásait infoit
+
+docker inspect <ID>             --> kilistázza a konténer beáálitásait infoit
+
+docker ps                     --> konténerek állapota futo konténerek
+
+docker volume ls              --> ki listázza a volumeket 
+
+docker run _<valami>_         --> letölti és futtatja
+
+docker pull _<valami>_        --> ez csak letölti de *NEM futtatja*
+
+docker run -p 80:80 <konténer név>     --> a _"-p"_ vel azt mondjuk hogy hogy melyik porotn fusson a konténerünk példánkban a 80:80 porton futtatunk (ha webes konténered van akko ezután nyitsz egy webböngészöt azt az URL cimben beirod hogy localhost vagy 127.0.0.0)
+
+docker run -p 80:80 -it <image> /bin/bash     interaktivan bele lépek a a futo konténerbe közben a 80 as porton futtatjuk a konténert 
+
+docker run -p 80:80 -v docker:/elérésiutvonal/ <image név>   --> megmondjuk hogy honnan fusson a konténer
+
+
+docker run --name web -p 80:80 -v ~/docker:/elérési utvonal/ <image név>
+
+___________________________________________________________________-
+
+
+#### törlések 
+
+docker rm <ID>               --> törli a konténert
+
+docker rmi <ID>               --> törli az imageket  
+
+docker volume rm <ID>         --> törli a volumeket
+
+
+______________________________________________________________
+
+docker start <ID>                     --> elinditunk egy leálllitott konténert
+
+docker start <ID> -i            
+
+docker ps -a | awk '{print$1}'        --> ki listázzuk a futo konténereket DE csak az első oszlopot jelenitsd meg
+
+sima docker ps -a
+
+loczylevi@sis:~$ docker ps -a
+CONTAINER ID   IMAGE         COMMAND              CREATED             STATUS                           PORTS     NAMES
+e76e5fc3034c   httpd         "/bin/bash"          8 minutes ago       Exited (100) 4 minutes ago                 nifty_jackson
+d51ed02ccc6a   httpd         "httpd-foreground"   9 minutes ago       Exited (0) 9 minutes ago                   vigilant_dubinsky
+3ec5c460fdc2   httpd         "httpd-foreground"   13 minutes ago      Exited (0) 9 minutes ago                   condescending_ganguly
+fb24f53f9332   ubuntu        "/bin/bash"          About an hour ago   Exited (0) About an hour ago               eloquent_engelbart
+8e3b017b4921   hello-world   "/hello"             About an hour ago   Exited (0) About an hour ago               optimistic_bhabha
+4fa8c7b42153   ubuntu        "bash"               About an hour ago   Exited (0) About an hour ago               romantic_khayyam
+28c0d74ce7fb   hello-world   "/hello"             About an hour ago   Exited (0) 2 minutes ago                   blissful_rosalind
+be3105b15853   ubuntu        "/bin/bash"          About an hour ago   Exited (127) About an hour ago             laughing_galois
+
+docker ps-a csak első oszlop
+
+loczylevi@sis:~$ docker ps -a | awk '{print$1}'
+CONTAINER
+e76e5fc3034c
+d51ed02ccc6a
+3ec5c460fdc2
+fb24f53f9332
+8e3b017b4921
+4fa8c7b42153
+28c0d74ce7fb
+be3105b15853
+
+második... 
+
+loczylevi@sis:~$ docker ps -a | awk '{print$2}'
+ID
+httpd
+httpd
+httpd
+ubuntu
+hello-world
+ubuntu
+hello-world
+ubuntu
+
+
+és igy tovább...
+
+
+
+### nem dockeres commandok de jó tudni (kitudja mit kérdezhetnek...)
+
+mkdir <directory_name>           --> mkdir == make directory csinálj egyy uj könyvtárat
+
+echo "buzi"                    --> printelünk a képernyőre
+
+echo "teszt" > directory_name/valami.txt    --> bele irunk egy fálja de meg kell adnunk a fáljnak az elérési utvonalát
+
 sudo kill <ID>                  --> kinyirunk megszüntetjük egy futó konténer futását 
 
 sudo kill -9 <ID>               --> nyomatékosan leállitunk egy futo konténert vagyis _kapcsoljál már le bammeg+_
@@ -148,10 +245,6 @@ cat /proc/cpuinfo               --> CPU, processzor infok
 cat /proc/meminfo               --> memória info
 
 cat /proc/diskstats             --> sok random szám passz  ¯\_(ツ)_/¯
-
-docker inspect <image ID>       --> kilistázza a konténer beáálitásait infoit
-
-docker inspect <ID>             --> kilistázza a konténer beáálitásait infoit
 
 ip a                           --> ip cim mac cim és egyéb cimek lekérése
 
@@ -168,16 +261,8 @@ ls -l /proc/
 cd                            --> chance directory
 
 cd ..                         --> vissza a szülökönyvtárhoz
-
-docker ps                     --> konténerek állapota futo konténerek
-
-docker volume ls              --> ki listázza a volumeket 
  
 less /etc/services             --> kilistázza az összes portot (q val kilépünk)
-
-docker run _<valami>_         --> letölti és futtatja
-
-docker pull _<valami>_        --> ez csak letölti de *NEM futtatja*
 
 netstat                        --> mik futnak ip cuccmok
 
@@ -187,22 +272,27 @@ netstat -lanpt | grep :80       --> csak azokat listázd ami 80 as port számú
 
 a grep egy kereső command
 
-docker stop <ID>               --> leállitja a futó konténert
+cat directory_name/index.html           --> a cat parancs megmutatja mi van egy fálj belsejébe 
 
-docker run -p 80:80 <konténer név>     --> a _"-p"_ vel azt mondjuk hogy hogy melyik porotn fusson a konténerünk példánkban a 80:80 porton futtatunk (ha webes konténered van akko ezután nyitsz egy webböngészöt azt az URL cimben beirod hogy localhost vagy 127.0.0.0)
+pl:
+_____________________________________________________________
+root@e76e5fc3034c:/usr/local/apache2# cat htdocs/index.html 
 
-docker run -p 80:80 -it <image>      interaktivan bele lépek a a futo konténerbe közben a 80 as porton futtatjuk a konténert
+<html><body><h1>It works!</h1></body></html>
 
+root@e76e5fc3034c:/usr/local/apache2# 
+______________________________________________________________
 
-
-
-
-
-
-
-
+példánkban az index.html ben egy alap HTML _(hpyer text markup language)_ skeletont láthatunk
 
 
+## tryhard commandok (ノ°益°)ノ
+
+docker ps -a | awk '{print "docker rm "$1}' | bash     --> psel kilistázom a futo kkonténereket a print$1 megmondom hogy az elsö oszlopot jelenitsd meg de utána ki printeljük plusszba a docker rm szöveget mellé a az elsö oszlop ID-eit plussz bash el kiadjuk a parancsokat
+
+docker images | awk '{print "docker rmi "$3}' | bash
 
 
-      
+
+
+
