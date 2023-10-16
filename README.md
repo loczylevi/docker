@@ -71,7 +71,7 @@ docker run myXampp
 
 _____________________________________
 
-## docker 2023.oktober 16. commandok
+## docker 2023.oktober 16. commandok 
 
 alapok alapja 
 
@@ -98,7 +98,7 @@ mint a fenti példában látható minden futo konténernek van egy CONTAINER ID 
 
 docker 
 
-docker run hello-world
+docker run hello-world             --> egy hello-world konténert futtatunk
 
 docker run ubuntu                   --> egy konténerben ubuntut futtatunk
 
@@ -116,7 +116,7 @@ docker run _valami_                 --> futtat konténert (mindig egy imagel ind
 
 docker images                       --> kilistázza az imageket
 
-docker rmi <img ID>                --> _rmi_ annyit teszt mint _remove image_  
+docker rmi <img ID>                --> _rmi_ annyit teszt mint _remove image_  vagyis image törlés
 
 ps ax                             --> listázza a futó alkalmazásokat
 
@@ -134,6 +134,73 @@ loczylevi@sis:~$ ps ax | grep docker
 ___________________________________
 
 mint a  fenti példában látható futtatjuk a ps commandot ami ugye listázza a futo dolgokat de grep commandal megmondtuk neki hogy csak azokat listázza aki amiben szerepel a "docker" szó, kifejezés
+
+sudo kill <ID>                  --> kinyirunk megszüntetjük egy futó konténer futását 
+
+sudo kill -9 <ID>               --> nyomatékosan leállitunk egy futo konténert vagyis _kapcsoljál már le bammeg+_
+
+free                            --> mutatja a szabad memoriát
+
+uname -a                        --> kernelnek milyne verziója van
+
+cat /proc/cpuinfo               --> CPU, processzor infok
+
+cat /proc/meminfo               --> memória info
+
+cat /proc/diskstats             --> sok random szám passz  ¯\_(ツ)_/¯
+
+docker inspect <image ID>       --> kilistázza a konténer beáálitásait infoit
+
+docker inspect <ID>             --> kilistázza a konténer beáálitásait infoit
+
+ip a                           --> ip cim mac cim és egyéb cimek lekérése
+
+ifconfig                       --> ip cim mac cim és egyéb cimek lekérése
+
+ls                             --> listázz
+
+ls -l                          --> listázz szószátyár üzemmód
+
+pwd                           --> print work directory aktuális utvonal ahol vagy
+
+ls -l /proc/
+
+cd                            --> chance directory
+
+cd ..                         --> vissza a szülökönyvtárhoz
+
+docker ps                     --> konténerek állapota futo konténerek
+
+docker volume ls              --> ki listázza a volumeket 
+ 
+less /etc/services             --> kilistázza az összes portot (q val kilépünk)
+
+docker run _<valami>_         --> letölti és futtatja
+
+docker pull _<valami>_        --> ez csak letölti de *NEM futtatja*
+
+netstat                        --> mik futnak ip cuccmok
+
+netstat lanpt                   --> szoszátyár üzemmód ip cucccmok 
+
+netstat -lanpt | grep :80       --> csak azokat listázd ami 80 as port számú
+
+a grep egy kereső command
+
+docker stop <ID>               --> leállitja a futó konténert
+
+docker run -p 80:80 <konténer név>     --> a _"-p"_ vel azt mondjuk hogy hogy melyik porotn fusson a konténerünk példánkban a 80:80 porton futtatunk (ha webes konténered van akko ezután nyitsz egy webböngészöt azt az URL cimben beirod hogy localhost vagy 127.0.0.0)
+
+docker run -p 80:80 -it <image>      interaktivan bele lépek a a futo konténerbe közben a 80 as porton futtatjuk a konténert
+
+
+
+
+
+
+
+
+
 
 
 
