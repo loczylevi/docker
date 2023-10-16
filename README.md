@@ -70,3 +70,31 @@ docker ujrainditása ha "elaludt"
 docker run myXampp
 
 _____________________________________
+
+## docker 2023.oktober 16. commandok
+
+docker 
+
+docker run hello-world
+
+docker run ubuntu                   --> egy konténerben ubuntut futtatunk
+
+docker run -it ubuntu               --> _"-it"_ -nek köszönhetően interaktívan bele megy a programban
+
+docker rm <ID>                      --> a docker _rm_ vagyis _remove_ parancsal kitörli azt a konténert amelyik ID azonositója alapján megadtunk
+
+docker inspector <ID>               --> részletes leirások egy konténerről
+
+docker ps                           --> kilistázza a futo docker konténereket
+
+docker ps -a                        --> _a_ annyit tesz mint _all_ vagyis az összes futo konténert listázza  _(Show all containers (default shows just running))_
+
+docker run _valami_                 --> futtat konténert (mindig egy imagel indit egy uj konténert)
+
+docker images                       --> kilistázza az imageket
+
+docker rmi <img ID>                --> _rmi_ annyit teszt mint _remove image_  
+
+ps ax                             --> listázza a futó alkalmazásokat
+
+docker run -it ubuntu 
